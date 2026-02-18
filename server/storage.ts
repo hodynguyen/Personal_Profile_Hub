@@ -1,38 +1,153 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import {
+  projects,
+  experiences,
+  skills,
+  contactMessages,
+  type Project,
+  type Experience,
+  type Skill,
+  type InsertContactMessage,
+} from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getProjects(): Promise<Project[]>;
+  getExperiences(): Promise<Experience[]>;
+  getSkills(): Promise<Skill[]>;
+  createContactMessage(message: InsertContactMessage): Promise<void>;
+  seedData(): Promise<void>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getProjects(): Promise<Project[]> {
+    return await db.select().from(projects);
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getExperiences(): Promise<Experience[]> {
+    return await db.select().from(experiences);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getSkills(): Promise<Skill[]> {
+    return await db.select().from(skills);
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createContactMessage(message: InsertContactMessage): Promise<void> {
+    await db.insert(contactMessages).values(message);
+  }
+
+  async seedData(): Promise<void> {
+    // Check if data exists
+    const existingProjects = await db.select().from(projects);
+    if (existingProjects.length > 0) return;
+
+    // Seed Skills
+    await db.insert(skills).values([
+      {
+        category: "Languages & Frameworks",
+        items: ["Node.js", "Go (Gin, gRPC)", "NestJS", "TypeScript", "PHP (Magento 2)"],
+      },
+      {
+        category: "Cloud & DevOps",
+        items: ["AWS (EC2, S3, Lambda, DynamoDB)", "Docker", "Kubernetes", "Helm", "Terraform", "CI/CD (Jenkins, Bitbucket)"],
+      },
+      {
+        category: "Databases",
+        items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB"],
+      },
+      {
+        category: "Frontend",
+        items: ["ReactJS", "NextJS", "HTML/CSS", "Tailwind CSS"],
+      },
+    ]);
+
+    // Seed Experience
+    await db.insert(experiences).values([
+      {
+        company: "Ricksoft",
+        role: "Software Engineer",
+        period: "03/2025 - Present",
+        description: [
+          "Developed enterprise-grade Atlassian applications (Jira/Confluence) serving global customers using serverless AWS architecture.",
+          "Ensured security & compliance for sensitive data (GDPR/ISO) while optimizing CI/CD pipelines.",
+          "Collaborated cross-functionally with global teams to deliver features and resolve critical escalations.",
+        ],
+      },
+      {
+        company: "EMDDI JSC",
+        role: "Full-Stack Software Engineer",
+        period: "03/2025 - 09/2025",
+        description: [
+          "Developed and maintained platform services, API gateway, and internal admin portals.",
+          "Built event-driven workflows for booking/payment; improved system reliability.",
+          "Standardized APIs and documentation; enhanced monitoring and release processes.",
+        ],
+      },
+      {
+        company: "BSS Group",
+        role: "Software Engineer",
+        period: "11/2022 - 02/2025",
+        description: [
+          "Developed, deployed, and maintained e-commerce systems (Magento 2).",
+          "Researched and developed solutions for integrating e-commerce websites with CRM and ERP systems.",
+          "Explored emerging web technologies and optimized products for high-traffic environments.",
+        ],
+      },
+    ]);
+
+    // Seed Projects
+    await db.insert(projects).values([
+      {
+        title: "Space Sync for Confluence",
+        description: "Synchronization engine enabling seamless content replication across Confluence spaces/sites. Implemented secure token exchange and real-time sync dashboard.",
+        role: "Software Engineer",
+        techStack: ["React", "TypeScript", "Node.js", "AWS Lambda", "DynamoDB"],
+        period: "03/2025 - Present",
+        company: "Ricksoft",
+        category: "Software Engineering",
+        isFeatured: true,
+      },
+      {
+        title: "Secured Fields for Jira",
+        description: "Security-focused app for granular field-level permissions with AES-256 encryption for GDPR/ISO compliance.",
+        role: "Software Engineer",
+        techStack: ["React", "TypeScript", "Atlassian Forge", "AWS KMS", "DynamoDB"],
+        period: "03/2025 - Present",
+        company: "Ricksoft",
+        category: "Software Engineering",
+        isFeatured: true,
+      },
+      {
+        title: "EMDDI Gateway Monorepo",
+        description: "Backend system with RBAC/Authorization (Casbin), aggregate reporting APIs, and reliable notification systems.",
+        role: "Backend Developer",
+        techStack: ["Go", "Gin", "gRPC", "PostgreSQL", "Redis", "RabbitMQ"],
+        period: "03/2025 - 09/2025",
+        company: "EMDDI",
+        category: "Backend",
+        isFeatured: false,
+      },
+      {
+        title: "Helm Deployment & DevOps",
+        description: "Authored reusable Helm charts, standardized probes and resource limits, and streamlined release processes for EMDDI services.",
+        role: "DevOps/Platform",
+        techStack: ["Helm", "Kubernetes", "Linkerd", "Docker", "Harbor"],
+        period: "03/2025 - 09/2025",
+        company: "EMDDI",
+        category: "DevOps",
+        isFeatured: true,
+      },
+      {
+        title: "720yun VR",
+        description: "Distributed large-scale image-processing pipeline using Python/Bash. Leveraged EC2 Spot and Lambda for cost optimization.",
+        role: "DevOps/Developer",
+        techStack: ["NestJS", "React", "Python", "AWS S3", "CloudFront"],
+        period: "03/2024 - 05/2025",
+        company: "Coregy Freelance Team",
+        category: "Full Stack",
+        isFeatured: false,
+      },
+    ]);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
