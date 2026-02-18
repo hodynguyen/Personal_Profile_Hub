@@ -58,6 +58,14 @@ export class DatabaseStorage implements IStorage {
         category: "Frontend",
         items: ["ReactJS", "NextJS", "HTML/CSS", "Tailwind CSS"],
       },
+      {
+        category: "Testing & Quality",
+        items: ["Jest", "Playwright", "Selenium", "ESLint", "Prettier"],
+      },
+      {
+        category: "Monitoring & Tools",
+        items: ["CloudWatch", "ELK Stack", "Prometheus", "Grafana", "Postman"],
+      },
     ]);
 
     // Seed Experience
@@ -144,6 +152,16 @@ export class DatabaseStorage implements IStorage {
         period: "03/2024 - 05/2025",
         company: "Coregy Freelance Team",
         category: "Full Stack",
+        isFeatured: false,
+      },
+      {
+        title: "Automated Testing Pipeline",
+        description: "Developed automated UI test pipelines using Selenium integrated with Jenkins CI for full regression coverage.",
+        role: "DevOps Engineer / QA Automation",
+        techStack: ["Selenium", "Jenkins", "Python", "Docker", "Bash"],
+        period: "06/2023 - 02/2025",
+        company: "BSS Group",
+        category: "DevOps",
         isFeatured: false,
       },
     ]);
