@@ -51,7 +51,7 @@ export default function Home() {
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight leading-[1.1] mb-6">
                 Hi, I'm <br />
-                <span className="text-gradient">Nguyen Thanh Dat</span>
+                <span className="text-gradient">Hody</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">

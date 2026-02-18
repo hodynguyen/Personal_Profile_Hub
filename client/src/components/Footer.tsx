@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold font-display mb-4">Nguyen Thanh Dat</h3>
+            <h3 className="text-xl font-bold font-display mb-4">Hody</h3>
             <p className="text-muted-foreground max-w-sm mb-6">
               A passionate Software Engineer & DevOps specialist crafting robust, scalable digital solutions with modern technologies.
             </p>
@@ -70,7 +70,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {currentYear} Nguyen Thanh Dat. All rights reserved.</p>
+          <p>© {currentYear} Hody. All rights reserved.</p>
           <p>Built with React, TypeScript & Tailwind CSS</p>
         </div>
       </div>
