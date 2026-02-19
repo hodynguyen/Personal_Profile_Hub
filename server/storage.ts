@@ -155,6 +155,16 @@ export class DatabaseStorage implements IStorage {
         isFeatured: false,
       },
       {
+        title: "Hody Workflow",
+        description: "A specialized AI Agent workflow plugin for Claude Code that transforms AI into a professional software development team with specialized agents (Architect, Researcher, etc.) and long-term knowledge retention.",
+        role: "Author / Lead Developer",
+        techStack: ["TypeScript", "Claude Code", "AI Agents", "YAML", "Markdown"],
+        period: "2025 - Present",
+        link: "https://github.com/hodynguyen/Claude_Workflow",
+        category: "AI & Automation",
+        isFeatured: true,
+      },
+      {
         title: "Automated Testing Pipeline",
         description: "Developed automated UI test pipelines using Selenium integrated with Jenkins CI for full regression coverage.",
         role: "DevOps Engineer / QA Automation",
