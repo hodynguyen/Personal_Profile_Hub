@@ -30,11 +30,12 @@ export default function Home() {
       <Navigation />
 
       {/* === HERO SECTION === */}
-      <section id="hero" className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+      <section id="hero" className="relative min-h-[100svh] flex flex-col pt-20 overflow-hidden">
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl opacity-50 dark:opacity-20 animate-pulse" />
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl opacity-50 dark:opacity-20" />
 
+        <div className="flex-1 flex items-center py-12">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <motion.div
@@ -88,13 +89,22 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div 
+        </div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block"
+          className="relative z-10 hidden md:flex justify-center pb-8"
         >
-          <ArrowDown className="text-muted-foreground w-6 h-6" />
+          <button
+            type="button"
+            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+            className="group p-3 rounded-full border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-colors"
+            aria-label="Scroll to About section"
+          >
+            <ArrowDown className="w-5 h-5 animate-bounce group-hover:animate-none" />
+          </button>
         </motion.div>
       </section>
 
