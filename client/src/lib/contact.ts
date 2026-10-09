@@ -6,7 +6,8 @@ export const PHONE_TEL = "+84968320336";
 export const LINKEDIN_URL = "https://linkedin.com/in/hodynguyen";
 export const GITHUB_URL = "https://github.com/hodynguyen";
 export const INSTAGRAM_URL = "https://www.instagram.com/hodysheet/";
-export const LOCATION = "Hanoi, Vietnam (GMT+7)";
+export const LOCATION = "Vietnam (GMT+7)";
+export const AVAILABILITY = "Remote, or on-site / hybrid in Hanoi or Ho Chi Minh City";
 
 export function mailto(subject: string, body = ""): string {
   const params = new URLSearchParams({ subject });

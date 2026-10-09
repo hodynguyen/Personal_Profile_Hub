@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ExperienceItem } from "@/components/ExperienceItem";
 import { ContactSection } from "@/components/ContactSection";
-import { HIRING_MAILTO } from "@/lib/contact";
+import { HIRING_MAILTO, LOCATION } from "@/lib/contact";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -62,8 +62,8 @@ export default function Home() {
               <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm md:text-base text-muted-foreground mb-10">
                 {[
                   { icon: Briefcase, text: "Senior SWE @ Surbana Jurong" },
-                  { icon: MapPin, text: "Hanoi, Vietnam (GMT+7)" },
-                  { icon: Globe, text: "Remote / Hybrid" },
+                  { icon: MapPin, text: LOCATION },
+                  { icon: Globe, text: "Remote · Hanoi · Ho Chi Minh City" },
                   { icon: Languages, text: "English C1" },
                 ].map((fact) => (
                   <li key={fact.text} className="flex items-center gap-2">

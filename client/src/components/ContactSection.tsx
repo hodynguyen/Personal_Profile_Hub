@@ -11,6 +11,7 @@ import {
   GITHUB_URL,
   INSTAGRAM_URL,
   LOCATION,
+  AVAILABILITY,
   HIRING_MAILTO,
   COLLAB_MAILTO,
 } from "@/lib/contact";
@@ -19,7 +20,7 @@ const paths = [
   {
     icon: Briefcase,
     title: "Recruiters & hiring managers",
-    body: "Open to Senior Software Engineer roles — full-stack, backend or platform — in remote or hybrid product teams working globally.",
+    body: "Open to Senior Software Engineer roles — full-stack, backend or platform — in product teams working globally — remote, or on-site / hybrid in Hanoi or Ho Chi Minh City.",
     points: [
       "4 years shipping production systems, currently Senior SWE at Surbana Jurong",
       "Go, Node.js/TypeScript, React/Angular, PostgreSQL, Kafka, AWS",
@@ -141,6 +142,7 @@ export function ContactSection() {
               <div>
                 <div className="text-sm font-semibold">Location</div>
                 <div className="text-muted-foreground mt-1">{LOCATION}</div>
+                <div className="text-sm text-muted-foreground mt-1">{AVAILABILITY}</div>
               </div>
             </div>
 
