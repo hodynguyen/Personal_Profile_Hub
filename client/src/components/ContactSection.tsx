@@ -24,7 +24,7 @@ const paths = [
     points: [
       "4 years shipping production systems, currently Senior SWE at Surbana Jurong",
       "Go, Node.js/TypeScript, React/Angular, PostgreSQL, Kafka, AWS",
-      "Daily working English (VSTEP C1) with teams in Singapore and the US",
+      "Daily working English with teams in Singapore and the US",
     ],
     cta: "Email me about a role",
     href: HIRING_MAILTO,

@@ -175,7 +175,7 @@ export default function Home() {
                 <p className="flex items-start gap-3">
                   <GraduationCap className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                   <span>
-                    Computer Science at <strong className="text-foreground">Hanoi University of Science and Technology</strong> — BSc completed, MSc in progress. Academic Excellence Scholarship (2021). VSTEP C1, TOEIC 780.
+                    Computer Science at <strong className="text-foreground">Hanoi University of Science and Technology</strong> — BSc completed, MSc in progress. Academic Excellence Scholarship (2021). English C1.
                   </span>
                 </p>
               </div>

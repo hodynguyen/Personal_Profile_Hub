@@ -87,8 +87,7 @@ export const skillsSeed: NewSkill[] = [
       "Cursor (agentic mode)",
       "Custom Plugins & Agent Rules",
       "MCP Integrations",
-      "VSTEP C1",
-      "TOEIC 780",
+      "Fluent English",
     ],
   },
 ];
