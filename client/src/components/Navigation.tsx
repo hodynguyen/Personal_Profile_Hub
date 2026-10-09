@@ -59,7 +59,7 @@ export function Navigation() {
             <div className="bg-primary text-primary-foreground p-1.5 rounded-lg">
               <Code2 className="w-5 h-5" />
             </div>
-            <span>Dev<span className="text-primary">Hody</span></span>
+            <span>Hody<span className="text-primary">.</span></span>
           </a>
 
           {/* Desktop Nav */}

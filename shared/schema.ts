@@ -25,6 +25,7 @@ export const experiences = pgTable("experiences", {
   role: text("role").notNull(),
   period: text("period").notNull(),
   description: text("description").array().notNull(), // Bullet points
+  techStack: text("tech_stack").array(),
 });
 
 // Skills table for technical expertise

@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown, Code, Server, Smartphone, Globe, Cloud, Database } from "lucide-react";
+import { ArrowDown, Server, Smartphone, Globe, Cloud, Mail, LayoutDashboard, Users, GraduationCap } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                Available for work
+                Open to remote & hybrid roles
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight leading-[1.1] mb-6">
@@ -55,7 +55,7 @@ export default function Home() {
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-                Software Engineer & DevOps Specialist. I build scalable, reliable, and high-performance applications that solve real-world problems.
+                Senior Software Engineer. Full-stack, 4 years, owning features from the database schema up to the screen — Go and Node.js services, event-driven systems, and React/Angular product UIs.
               </p>
               
               <div className="flex flex-wrap gap-4">
@@ -109,28 +109,31 @@ export default function Home() {
             <div>
               <SectionHeading 
                 title="About Me" 
-                subtitle="Passionate about bridging the gap between development and operations." 
+                subtitle="I design across the boundary between backend and UI, not on one side of it." 
                 className="mb-8"
               />
               
               <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  I'm a Software Engineer based in Hanoi with a strong foundation in both application development and infrastructure management. I graduated from <strong className="text-foreground">Hanoi University of Science and Technology (HUST)</strong>.
+                  I'm <strong className="text-foreground">Nguyen Thanh Dat (Hody)</strong>, a full-stack engineer in Vietnam. I build Go and Node.js/TypeScript services with event-driven architecture and third-party integration over REST, gRPC and webhooks, and React, Next.js and Angular on the front — admin dashboards, builder UIs and high-volume data tables.
                 </p>
                 <p>
-                  My journey involves deep dives into DevOps practices, cloud infrastructure, and full-stack development. I've worked with companies like <strong className="text-foreground">Ricksoft</strong>, <strong className="text-foreground">EMDDI</strong>, and <strong className="text-foreground">BSS Group</strong>, delivering robust solutions for complex problems.
+                  Today I'm a Senior Software Engineer at <strong className="text-foreground">Surbana Jurong Group</strong>, where I built a workflow automation engine together with its drag-and-drop builder UI. Before that: <strong className="text-foreground">Ricksoft</strong>, <strong className="text-foreground">EMDDI</strong>, <strong className="text-foreground">BSS Group</strong>, and running my own outsourcing team at <strong className="text-foreground">Coregy</strong>. I've led small teams and owned code review and mentoring for junior engineers.
                 </p>
-                <p>
-                  When I'm not coding, I'm exploring new technologies, optimizing CI/CD pipelines, or contributing to open-source projects.
+                <p className="flex items-start gap-3">
+                  <GraduationCap className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                  <span>
+                    Computer Science at <strong className="text-foreground">Hanoi University of Science and Technology</strong> — BSc completed, MSc in progress. Academic Excellence Scholarship (2021), Rising Star Award at BSS Group (2023). VSTEP C1, TOEIC 780.
+                  </span>
                 </p>
               </div>
 
               <div className="mt-10 grid grid-cols-2 gap-6">
                 {[
-                  { icon: Code, label: "Full Stack Dev" },
-                  { icon: Cloud, label: "Cloud Architecture" },
-                  { icon: Server, label: "DevOps & CI/CD" },
-                  { icon: Database, label: "Database Design" },
+                  { icon: Server, label: "Distributed Systems" },
+                  { icon: LayoutDashboard, label: "Product & Builder UIs" },
+                  { icon: Cloud, label: "Cloud & DevOps" },
+                  { icon: Users, label: "Team Lead & Mentoring" },
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
@@ -257,17 +260,27 @@ export default function Home() {
               <div>
                 <SectionHeading 
                   title="Let's Connect" 
-                  subtitle="Have a project in mind or just want to chat? Feel free to reach out."
+                  subtitle="Have a role or a project in mind? Feel free to reach out."
                 />
                 
                 <div className="mt-8 space-y-8">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg">Email</h4>
+                      <a href="mailto:hodynguyen.forwork@gmail.com" className="text-muted-foreground hover:text-primary transition-colors mt-1 block">hodynguyen.forwork@gmail.com</a>
+                    </div>
+                  </div>
+
                   <div className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-lg text-primary">
                       <Smartphone className="w-6 h-6" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-lg">Phone</h4>
-                      <p className="text-muted-foreground mt-1">0968 320 336</p>
+                      <a href="tel:+84968320336" className="text-muted-foreground hover:text-primary transition-colors mt-1 block">0968 320 336</a>
                     </div>
                   </div>
                   
@@ -287,8 +300,8 @@ export default function Home() {
                   <div className="p-6 bg-card border border-border rounded-xl mt-8">
                     <h4 className="font-semibold mb-2">Open for opportunities</h4>
                     <p className="text-muted-foreground text-sm">
-                      I'm currently available for freelance work and full-time positions. 
-                      If you have an interesting project, let's talk!
+                      Looking for remote or hybrid product and platform engineering roles in a global environment.
+                      Daily working English with distributed teams across Singapore and the US.
                     </p>
                   </div>
                 </div>

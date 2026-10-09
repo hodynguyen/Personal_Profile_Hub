@@ -10,7 +10,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold font-display mb-4">Hody</h3>
             <p className="text-muted-foreground max-w-sm mb-6">
-              A passionate Software Engineer & DevOps specialist crafting robust, scalable digital solutions with modern technologies.
+              Nguyen Thanh Dat — Senior Software Engineer building distributed systems, workflow automation platforms and the product UIs on top of them.
             </p>
             <div className="flex gap-4">
               <a 
@@ -39,15 +39,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:nguyenthanhdat23012003@gmail.com">Email Me</a>
+                <a href="mailto:hodynguyen.forwork@gmail.com">hodynguyen.forwork@gmail.com</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                <a href="tel:0968320336">0968 320 336</a>
+                <a href="tel:+84968320336">0968 320 336</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                <span>Nam Tu Liem, Hanoi</span>
+                <span>Hanoi, Vietnam</span>
               </li>
             </ul>
           </div>

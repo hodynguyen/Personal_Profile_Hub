@@ -3,8 +3,10 @@ import { pool } from "../server/db";
 
 // One-off seed for a fresh database (e.g. production on Vercel):
 //   DATABASE_URL=... npm run db:seed
+// Replace existing portfolio content with server/seed-data.ts:
+//   DATABASE_URL=... npm run db:seed -- --reset
 async function main() {
-  await storage.seedData();
+  await storage.seedData({ reset: process.argv.includes("--reset") });
   console.log("seed done");
   await pool.end();
 }

@@ -65,6 +65,19 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
                 </li>
               ))}
             </ul>
+
+            {experience.techStack && experience.techStack.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-border/40">
+                {experience.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 text-xs font-medium rounded-md bg-muted text-muted-foreground border border-border"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
