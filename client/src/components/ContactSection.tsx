@@ -66,7 +66,7 @@ export function ContactSection() {
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             title="Let's Work Together"
-            subtitle="Whether you're building a team or a product, I'd be glad to hear from you — email is the best way to reach me."
+            subtitle="If you're hiring or building something ambitious, I'd welcome a conversation."
             centered
           />
 
