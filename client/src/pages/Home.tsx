@@ -35,7 +35,8 @@ export default function Home() {
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl opacity-50 dark:opacity-20 animate-pulse" />
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl opacity-50 dark:opacity-20" />
 
-        <div className="flex-1 flex items-center py-12">
+        <div className="flex-1 min-h-12" />
+        <div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <motion.div
@@ -95,12 +96,12 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="relative z-10 hidden md:flex justify-center pb-8"
+          className="relative z-10 flex-1 md:min-h-24 flex items-center justify-center"
         >
           <button
             type="button"
             onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            className="p-3 text-muted-foreground hover:text-primary transition-colors"
+            className="hidden md:block p-3 text-muted-foreground hover:text-primary transition-colors"
             aria-label="Scroll to About section"
           >
             <ArrowDown className="w-5 h-5 animate-bounce" />
