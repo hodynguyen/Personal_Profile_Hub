@@ -155,7 +155,6 @@ export const experiencesSeed: NewExperience[] = [
       "Delivered four multi-site e-commerce platforms (Crema Coffee Garage, Eternity Modern, Vyta Health, Club Der Dampfer) from build through go-live.",
       "Magento 2 back office: business logic, module customisation and compatibility fixes through version upgrades.",
       "Integrated Odoo ERP and CRM over REST APIs; set up Docker environments and CI/CD pipelines for multi-environment deploys.",
-      "Rising Star Award, 2023.",
     ],
   },
 ];
