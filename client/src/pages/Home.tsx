@@ -107,21 +107,42 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="order-last lg:order-first"
             >
-               {/* Decorative image placeholder using CSS pattern/gradient instead of stock image */}
-               <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-border shadow-2xl group">
-                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-8xl font-bold font-display text-white/5 group-hover:text-white/10 transition-colors select-none">NTD</span>
-                 </div>
-                 {/* Floating tech icons */}
-                 <div className="absolute top-10 right-10 p-4 bg-background/10 backdrop-blur-md border border-white/10 rounded-2xl animate-pulse">
-                    <Cloud className="w-8 h-8 text-primary" />
-                 </div>
-                 <div className="absolute bottom-10 left-10 p-4 bg-background/10 backdrop-blur-md border border-white/10 rounded-2xl animate-pulse" style={{ animationDelay: '1s' }}>
-                    <Server className="w-8 h-8 text-accent" />
-                 </div>
-               </div>
+              <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-10 shadow-xl">
+                <div className="text-xs font-semibold tracking-wider text-primary uppercase mb-8">
+                  By the numbers
+                </div>
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
+                  {[
+                    { value: "4", unit: "years", label: "shipping production software" },
+                    { value: "~1,370", unit: "", label: "installs across 2 Atlassian Marketplace apps" },
+                    { value: "15", unit: "services", label: "migrated off a Node.js monolith to Go" },
+                    { value: "23", unit: "node types", label: "in the workflow engine I build" },
+                    { value: "1 → 20", unit: "of 20", label: "PDF jobs completing in a 512 MB pod after profiling" },
+                    { value: "841", unit: "tests", label: "in Hody Workflow, used across 13 repos" },
+                  ].map((stat, i) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08 }}
+                    >
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd>
+                        <div className="font-display font-bold text-3xl md:text-4xl text-foreground tracking-tight">
+                          {stat.value}
+                          {stat.unit && (
+                            <span className="text-base md:text-lg font-medium text-primary ml-1.5">{stat.unit}</span>
+                          )}
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-1.5 leading-snug">{stat.label}</p>
+                      </dd>
+                    </motion.div>
+                  ))}
+                </dl>
+              </div>
             </motion.div>
 
             <div>
