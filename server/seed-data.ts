@@ -218,14 +218,27 @@ export const projectsSeed: NewProject[] = [
     isFeatured: false,
   },
   {
-    title: "Coregy Client Deliveries",
+    title: "720yun — VR Panorama Platform",
     description:
-      "Led a 5+ developer outsourcing team delivering Kingess (Zalo Mini App), 720yun (VR panorama platform) and CRM projects, plus NestJS purchasing/payment backends and ERP integration APIs.",
+      "360° VR panorama platform for creating, hosting and sharing panoramic tours. Delivered by the Coregy team I led — scoping with the client as PM/BA, then leading development while shipping code.",
     role: "Founder / Lead Engineer",
-    techStack: ["NestJS", "React", "Python", "MongoDB", "AWS"],
+    techStack: ["NestJS", "React", "Python (OpenCV)", "AWS S3", "CloudFront"],
     period: "03/2024 - 05/2025",
     company: "Coregy",
+    link: "https://www.720yun.com/",
     category: "Full Stack",
+    isFeatured: false,
+  },
+  {
+    title: "Kingess Shop — Zalo Mini App",
+    description:
+      "Household-goods shop running as a Zalo Mini App: product catalogue, fast checkout and home delivery inside Zalo. Delivered by the Coregy team I led, with NestJS purchasing and payment backends.",
+    role: "Founder / Lead Engineer",
+    techStack: ["Zalo Mini App", "React", "NestJS", "MongoDB"],
+    period: "03/2024 - 05/2025",
+    company: "Coregy",
+    link: "https://zalo.me/s/3874648316756588859/",
+    category: "Mobile Commerce",
     isFeatured: false,
   },
 ];
