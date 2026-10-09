@@ -22,7 +22,7 @@ async function buildVercel() {
   await esbuild({
     entryPoints: ["server/vercel.ts"],
     platform: "node",
-    target: "node20",
+    target: "node22",
     bundle: true,
     format: "cjs",
     outfile: `${funcDir}/index.cjs`,
@@ -41,7 +41,7 @@ async function buildVercel() {
     `${funcDir}/.vc-config.json`,
     JSON.stringify(
       {
-        runtime: "nodejs20.x",
+        runtime: "nodejs24.x",
         handler: "index.cjs",
         launcherType: "Nodejs",
         shouldAddHelpers: false,
