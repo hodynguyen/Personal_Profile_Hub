@@ -229,16 +229,4 @@ export const projectsSeed: NewProject[] = [
     category: "Full Stack",
     isFeatured: false,
   },
-  {
-    title: "Kingess Shop — Zalo Mini App",
-    description:
-      "Household-goods shop running as a Zalo Mini App: product catalogue, fast checkout and home delivery inside Zalo. Delivered by the Coregy team I led, with NestJS purchasing and payment backends.",
-    role: "Founder / Lead Engineer",
-    techStack: ["Zalo Mini App", "React", "NestJS", "MongoDB"],
-    period: "03/2024 - 05/2025",
-    company: "Coregy",
-    link: "https://zalo.me/s/3874648316756588859/",
-    category: "Mobile Commerce",
-    isFeatured: false,
-  },
 ];
