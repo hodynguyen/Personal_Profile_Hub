@@ -5,12 +5,10 @@ import {
   projects,
   experiences,
   skills,
-  contactMessages,
   users,
   type Project,
   type Experience,
   type Skill,
-  type InsertContactMessage,
   type User,
   type InsertUser,
 } from "@shared/schema";
@@ -19,7 +17,6 @@ export interface IStorage {
   getProjects(): Promise<Project[]>;
   getExperiences(): Promise<Experience[]>;
   getSkills(): Promise<Skill[]>;
-  createContactMessage(message: InsertContactMessage): Promise<void>;
   seedData(options?: { reset?: boolean }): Promise<void>;
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
@@ -38,10 +35,6 @@ export class DatabaseStorage implements IStorage {
 
   async getSkills(): Promise<Skill[]> {
     return await db.select().from(skills).orderBy(asc(skills.id));
-  }
-
-  async createContactMessage(message: InsertContactMessage): Promise<void> {
-    await db.insert(contactMessages).values(message);
   }
 
   async getUser(id: number): Promise<User | undefined> {

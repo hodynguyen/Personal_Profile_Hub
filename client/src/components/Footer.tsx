@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL, LINKEDIN_URL, GITHUB_URL, INSTAGRAM_URL, LOCATION } from "@/lib/contact";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a 
-                href="https://github.com/hodynguyen" 
+                href={GITHUB_URL} 
                 target="_blank" 
                 rel="noreferrer"
                 className="bg-background p-2.5 rounded-full border border-border hover:border-primary hover:text-primary hover:shadow-md transition-all"
@@ -23,13 +24,22 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/hodynguyen/" 
+                href={LINKEDIN_URL} 
                 target="_blank" 
                 rel="noreferrer"
                 className="bg-background p-2.5 rounded-full border border-border hover:border-primary hover:text-primary hover:shadow-md transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href={INSTAGRAM_URL} 
+                target="_blank" 
+                rel="noreferrer"
+                className="bg-background p-2.5 rounded-full border border-border hover:border-primary hover:text-primary hover:shadow-md transition-all"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -39,15 +49,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:hodynguyen.forwork@gmail.com">hodynguyen.forwork@gmail.com</a>
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                <a href="tel:+84968320336">0968 320 336</a>
+                <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                <span>Hanoi, Vietnam</span>
+                <span>{LOCATION}</span>
               </li>
             </ul>
           </div>
@@ -55,7 +65,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
             <ul className="space-y-2">
-              {['About', 'Skills', 'Experience', 'Projects'].map((item) => (
+              {['About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
                     href={`#${item.toLowerCase()}`} 

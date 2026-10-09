@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertContactMessageSchema, projects, experiences, skills } from './schema';
+import { projects, experiences, skills } from './schema';
 
 // ============================================
 // SHARED ERROR SCHEMAS
@@ -48,17 +48,6 @@ export const api = {
       },
     },
   },
-  contact: {
-    submit: {
-      method: 'POST' as const,
-      path: '/api/contact' as const,
-      input: insertContactMessageSchema,
-      responses: {
-        201: z.object({ success: z.boolean() }),
-        400: errorSchemas.validation,
-      },
-    },
-  },
   auth: {
     register: {
       method: 'POST' as const,
@@ -101,6 +90,5 @@ export const api = {
 // TYPE HELPERS
 // ============================================
 export type PortfolioResponse = z.infer<typeof api.portfolio.get.responses[200]>;
-export type ContactInput = z.infer<typeof api.contact.submit.input>;
 export type AuthInput = z.infer<typeof authInputSchema>;
 export type UserResponse = z.infer<typeof userResponseSchema>;

@@ -3,11 +3,12 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ExperienceItem } from "@/components/ExperienceItem";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactSection } from "@/components/ContactSection";
+import { HIRING_MAILTO } from "@/lib/contact";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown, Server, Smartphone, Globe, Cloud, Mail, LayoutDashboard, Users, GraduationCap } from "lucide-react";
+import { ArrowDown, Server, Cloud, Mail, LayoutDashboard, Users, GraduationCap, Briefcase, MapPin, Globe, Languages } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
@@ -54,16 +55,33 @@ export default function Home() {
                 <span className="text-gradient">Hody</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
                 Senior Software Engineer. Full-stack, 4 years, owning features from the database schema up to the screen — Go and Node.js services, event-driven systems, and React/Angular product UIs.
               </p>
               
+              <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm md:text-base text-muted-foreground mb-10">
+                {[
+                  { icon: Briefcase, text: "Senior SWE @ Surbana Jurong" },
+                  { icon: MapPin, text: "Hanoi, Vietnam (GMT+7)" },
+                  { icon: Globe, text: "Remote / Hybrid" },
+                  { icon: Languages, text: "English C1" },
+                ].map((fact) => (
+                  <li key={fact.text} className="flex items-center gap-2">
+                    <fact.icon className="w-4 h-4 text-primary" />
+                    {fact.text}
+                  </li>
+                ))}
+              </ul>
+
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="text-base h-12 px-8 rounded-full" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
-                  View Projects
+                <Button asChild size="lg" className="text-base h-12 px-8 rounded-full gap-2">
+                  <a href={HIRING_MAILTO}>
+                    <Mail className="w-5 h-5" />
+                    Email Me
+                  </a>
                 </Button>
-                <Button size="lg" variant="outline" className="text-base h-12 px-8 rounded-full border-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Contact Me
+                <Button size="lg" variant="outline" className="text-base h-12 px-8 rounded-full border-2" onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}>
+                  View Experience
                 </Button>
               </div>
             </motion.div>
@@ -248,70 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === CONTACT SECTION === */}
-      <section id="contact" className="py-24 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden">
-        {/* Background blobs */}
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div>
-                <SectionHeading 
-                  title="Let's Connect" 
-                  subtitle="Have a role or a project in mind? Feel free to reach out."
-                />
-                
-                <div className="mt-8 space-y-8">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
-                      <Mail className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg">Email</h4>
-                      <a href="mailto:hodynguyen.forwork@gmail.com" className="text-muted-foreground hover:text-primary transition-colors mt-1 block">hodynguyen.forwork@gmail.com</a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
-                      <Smartphone className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg">Phone</h4>
-                      <a href="tel:+84968320336" className="text-muted-foreground hover:text-primary transition-colors mt-1 block">0968 320 336</a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
-                      <Globe className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg">Socials</h4>
-                      <div className="flex gap-4 mt-2">
-                        <a href="https://github.com/hodynguyen" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">GitHub</a>
-                        <a href="https://linkedin.com/in/hodynguyen/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 bg-card border border-border rounded-xl mt-8">
-                    <h4 className="font-semibold mb-2">Open for opportunities</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Looking for remote or hybrid product and platform engineering roles in a global environment.
-                      Daily working English with distributed teams across Singapore and the US.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
 
       <Footer />
     </div>

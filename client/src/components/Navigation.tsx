@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2, LogOut, LogIn, Loader2 } from "lucide-react";
+import { Menu, X, Code2, LogOut, Mail, Loader2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { HIRING_MAILTO } from "@/lib/contact";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -98,13 +99,12 @@ export function Navigation() {
                   )}
                 </Button>
               ) : (
-                <a
-                  href="/auth"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <LogIn className="h-4 w-4" />
-                  Login
-                </a>
+                <Button asChild size="sm" className="rounded-full gap-1.5">
+                  <a href={HIRING_MAILTO}>
+                    <Mail className="h-4 w-4" />
+                    Email Me
+                  </a>
+                </Button>
               )}
             </div>
           </nav>
@@ -177,14 +177,12 @@ export function Navigation() {
                     )}
                   </Button>
                 ) : (
-                  <a
-                    href="/auth"
-                    onClick={() => setIsOpen(false)}
-                    className="inline-flex items-center gap-2 text-xl font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    <LogIn className="h-5 w-5" />
-                    Login
-                  </a>
+                  <Button asChild size="lg" className="rounded-full gap-2 text-lg">
+                    <a href={HIRING_MAILTO} onClick={() => setIsOpen(false)}>
+                      <Mail className="h-5 w-5" />
+                      Email Me
+                    </a>
+                  </Button>
                 )}
               </motion.div>
             </nav>
