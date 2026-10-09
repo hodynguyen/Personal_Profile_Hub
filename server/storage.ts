@@ -1,13 +1,17 @@
 import { db } from "./db";
+import { eq, count } from "drizzle-orm";
 import {
   projects,
   experiences,
   skills,
   contactMessages,
+  users,
   type Project,
   type Experience,
   type Skill,
   type InsertContactMessage,
+  type User,
+  type InsertUser,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -16,6 +20,10 @@ export interface IStorage {
   getSkills(): Promise<Skill[]>;
   createContactMessage(message: InsertContactMessage): Promise<void>;
   seedData(): Promise<void>;
+  getUser(id: number): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(user: InsertUser): Promise<User>;
+  getUserCount(): Promise<number>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -33,6 +41,26 @@ export class DatabaseStorage implements IStorage {
 
   async createContactMessage(message: InsertContactMessage): Promise<void> {
     await db.insert(contactMessages).values(message);
+  }
+
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
+  }
+
+  async createUser(user: InsertUser): Promise<User> {
+    const [created] = await db.insert(users).values(user).returning();
+    return created;
+  }
+
+  async getUserCount(): Promise<number> {
+    const [result] = await db.select({ value: count() }).from(users);
+    return result.value;
   }
 
   async seedData(): Promise<void> {

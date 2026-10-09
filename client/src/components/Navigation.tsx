@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Code2, LogOut, LogIn, Loader2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +17,7 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { user, logoutMutation } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,8 +78,34 @@ export function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </a>
             ))}
-            <div className="pl-4 border-l border-border">
+            <div className="pl-4 border-l border-border flex items-center gap-3">
               <ThemeToggle />
+              {user ? (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => logoutMutation.mutate()}
+                  disabled={logoutMutation.isPending}
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  {logoutMutation.isPending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <>
+                      <LogOut className="h-4 w-4 mr-1.5" />
+                      Logout
+                    </>
+                  )}
+                </Button>
+              ) : (
+                <a
+                  href="/auth"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <LogIn className="h-4 w-4" />
+                  Login
+                </a>
+              )}
             </div>
           </nav>
 
@@ -122,6 +150,43 @@ export function Navigation() {
                   {item.name}
                 </motion.a>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+                className="pt-4 border-t border-border"
+              >
+                {user ? (
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    onClick={() => {
+                      logoutMutation.mutate();
+                      setIsOpen(false);
+                    }}
+                    disabled={logoutMutation.isPending}
+                    className="text-xl font-medium text-foreground hover:text-primary"
+                  >
+                    {logoutMutation.isPending ? (
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                    ) : (
+                      <>
+                        <LogOut className="h-5 w-5 mr-2" />
+                        Logout
+                      </>
+                    )}
+                  </Button>
+                ) : (
+                  <a
+                    href="/auth"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center gap-2 text-xl font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    <LogIn className="h-5 w-5" />
+                    Login
+                  </a>
+                )}
+              </motion.div>
             </nav>
           </motion.div>
         )}

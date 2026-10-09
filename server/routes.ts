@@ -1,15 +1,12 @@
 import type { Express } from "express";
-import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
+import { setupAuth } from "./auth";
 
-export async function registerRoutes(
-  httpServer: Server,
-  app: Express
-): Promise<Server> {
-  // Initialize seed data
-  await storage.seedData();
+export function registerRoutes(app: Express): void {
+  // Setup authentication (session, passport, auth routes)
+  setupAuth(app);
 
   app.get(api.portfolio.get.path, async (_req, res) => {
     const projects = await storage.getProjects();
@@ -38,6 +35,4 @@ export async function registerRoutes(
       throw err;
     }
   });
-
-  return httpServer;
 }

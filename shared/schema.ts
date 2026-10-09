@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, jsonb, varchar, json, index } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -34,6 +34,25 @@ export const skills = pgTable("skills", {
   items: text("items").array().notNull(),
 });
 
+// Users table for authentication
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  password: text("password").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Session store for express-session (matches connect-pg-simple's table.sql)
+export const sessions = pgTable(
+  "session",
+  {
+    sid: varchar("sid").primaryKey(),
+    sess: json("sess").notNull(),
+    expire: timestamp("expire", { precision: 6 }).notNull(),
+  },
+  (table) => [index("IDX_session_expire").on(table.expire)],
+);
+
 // Contact messages from the site
 export const contactMessages = pgTable("contact_messages", {
   id: serial("id").primaryKey(),
@@ -49,6 +68,10 @@ export const insertProjectSchema = createInsertSchema(projects);
 export const insertExperienceSchema = createInsertSchema(experiences);
 export const insertSkillSchema = createInsertSchema(skills);
 export const insertContactMessageSchema = createInsertSchema(contactMessages);
+export const insertUserSchema = createInsertSchema(users).pick({
+  username: true,
+  password: true,
+});
 
 // === EXPLICIT API CONTRACT TYPES ===
 
@@ -58,6 +81,9 @@ export type Skill = typeof skills.$inferSelect;
 export type ContactMessage = typeof contactMessages.$inferSelect;
 
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+
+export type User = typeof users.$inferSelect;
+export type InsertUser = z.infer<typeof insertUserSchema>;
 
 export type PortfolioDataResponse = {
   projects: Project[];

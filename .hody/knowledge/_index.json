@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-04-03",
+  "files": [
+    {
+      "file": "architecture.md",
+      "tags": ["architecture", "overview"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "current",
+      "sections": [
+        "Architecture",
+        "System Overview",
+        "Component Diagram",
+        "Data Flow",
+        "Tech Stack Rationale"
+      ],
+      "lines": 82
+    },
+    {
+      "file": "api-contracts.md",
+      "tags": ["api", "contracts", "endpoints"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "current",
+      "sections": [
+        "API Contracts",
+        "Endpoints",
+        "GET /api/portfolio",
+        "POST /api/contact",
+        "Error Schemas",
+        "Type Helpers"
+      ],
+      "lines": 76
+    },
+    {
+      "file": "decisions.md",
+      "tags": ["decisions", "adr"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "current",
+      "sections": [
+        "Architecture Decision Records",
+        "ADR-001: Initial Tech Stack"
+      ],
+      "lines": 45
+    },
+    {
+      "file": "runbook.md",
+      "tags": ["runbook", "operations", "commands"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "current",
+      "sections": [
+        "Runbook",
+        "Prerequisites",
+        "Common Commands",
+        "Local Development",
+        "Database",
+        "Build & Deploy",
+        "Environment Variables",
+        "CI/CD",
+        "Testing"
+      ],
+      "lines": 50
+    },
+    {
+      "file": "business-rules.md",
+      "tags": ["business-rules"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "template",
+      "sections": [
+        "Business Rules",
+        "Template"
+      ],
+      "lines": 16
+    },
+    {
+      "file": "tech-debt.md",
+      "tags": ["tech-debt"],
+      "author_agent": "init",
+      "created": "2026-04-03",
+      "status": "template",
+      "sections": [
+        "Tech Debt Registry",
+        "Template"
+      ],
+      "lines": 18
+    }
+  ]
+}

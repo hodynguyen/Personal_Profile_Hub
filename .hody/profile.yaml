@@ -1,0 +1,37 @@
+project:
+  name: personal-profile-hub
+  type: fullstack
+  description: Personal portfolio website for a Software Engineer & DevOps specialist
+
+stack:
+  language: TypeScript
+  runtime: Node.js
+  frontend:
+    framework: React 18
+    bundler: Vite 7
+    styling: Tailwind CSS 3 + shadcn/ui (Radix UI)
+    routing: Wouter
+    state: TanStack React Query
+    forms: react-hook-form + Zod
+    animations: Framer Motion
+  backend:
+    framework: Express 5
+    api_style: REST (shared contract pattern)
+  database:
+    type: PostgreSQL
+    orm: Drizzle ORM
+    migrations: drizzle-kit (push)
+  testing: {}
+  ci_cd: {}
+  deployment:
+    platform: Replit (originally)
+
+structure:
+  client: client/src/
+  server: server/
+  shared: shared/
+  ui_components: client/src/components/ui/
+  feature_components: client/src/components/
+  pages: client/src/pages/
+
+detected_at: "2026-04-03"
