@@ -100,10 +100,11 @@ export default function Home() {
           <button
             type="button"
             onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            className="group p-3 rounded-full border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-colors"
+            className="flex flex-col items-center gap-1 px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
             aria-label="Scroll to About section"
           >
-            <ArrowDown className="w-5 h-5 animate-bounce group-hover:animate-none" />
+            <span className="text-xs font-medium uppercase tracking-[0.2em] -mr-[0.2em]">Scroll</span>
+            <ArrowDown className="w-5 h-5 animate-bounce" />
           </button>
         </motion.div>
       </section>
