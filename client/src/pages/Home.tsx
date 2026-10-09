@@ -66,7 +66,7 @@ export default function Home() {
                   { icon: Briefcase, text: "Senior SWE @ Surbana Jurong" },
                   { icon: MapPin, text: LOCATION },
                   { icon: Globe, text: "Remote · Hanoi · Ho Chi Minh City" },
-                  { icon: Languages, text: "English C1" },
+                  { icon: Languages, text: "English · Vietnamese" },
                 ].map((fact) => (
                   <li key={fact.text} className="flex items-center gap-2">
                     <fact.icon className="w-4 h-4 text-primary" />
