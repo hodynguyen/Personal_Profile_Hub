@@ -116,6 +116,10 @@ export default function Home() {
                 <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
                   {[
                     { value: "4", unit: "years", label: "shipping production software" },
+                    { value: "5", unit: "companies", label: "from outsourcing startup to multinational group" },
+                    { value: "10+", unit: "projects", label: "delivered as a key member" },
+                    { value: "3", unit: "countries", label: "teams worked with: Vietnam, Singapore, US" },
+                    { value: "Top", unit: "contributor", label: "on both core services of a multi-tenant SaaS" },
                     { value: "5+", unit: "developers", label: "led as founder of Coregy" },
                     { value: "~1,370", unit: "", label: "installs across 2 Atlassian Marketplace apps" },
                     { value: "50+", unit: "installs", label: "of Hody Workflow, my Claude Code plugin" },
