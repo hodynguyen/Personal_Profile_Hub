@@ -37,7 +37,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <p className="text-sm text-muted-foreground mt-1 font-medium">{project.role}</p>
         </div>
 
-        <p className="text-muted-foreground mb-6 line-clamp-3 flex-grow">
+        <p className="text-muted-foreground mb-6 flex-grow">
           {project.description}
         </p>
 
