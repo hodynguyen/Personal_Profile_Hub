@@ -116,11 +116,9 @@ export default function Home() {
                 <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
                   {[
                     { value: "4", unit: "years", label: "shipping production software" },
+                    { value: "5+", unit: "developers", label: "led as founder of Coregy" },
                     { value: "~1,370", unit: "", label: "installs across 2 Atlassian Marketplace apps" },
-                    { value: "15", unit: "services", label: "migrated off a Node.js monolith to Go" },
-                    { value: "23", unit: "node types", label: "in the workflow engine I build" },
-                    { value: "1 → 20", unit: "of 20", label: "PDF jobs completing in a 512 MB pod after profiling" },
-                    { value: "841", unit: "tests", label: "in Hody Workflow, used across 13 repos" },
+                    { value: "50+", unit: "installs", label: "of Hody Workflow, my Claude Code plugin" },
                   ].map((stat, i) => (
                     <motion.div
                       key={stat.label}
