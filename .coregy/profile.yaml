@@ -1,0 +1,16 @@
+project:
+  name: rest-express
+  type: fullstack
+frontend:
+  framework: react
+  styling: tailwind
+  build: vite
+  language: typescript
+  dir: client
+backend:
+  framework: express
+  orm: drizzle
+  language: typescript
+  dir: server
+devops:
+  deploy: vercel

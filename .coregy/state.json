@@ -33,7 +33,7 @@
       "started_at": "2026-04-03T00:00:00Z",
       "completed_at": "2026-04-03T00:00:00Z",
       "output_summary": "Designed complete auth system (ADR-002): users table with scrypt passwords, 4 API endpoints (register/login/logout/session), Passport local strategy with PG session store, frontend AuthProvider with protected routes. First-user-wins registration model for single-owner portfolio.",
-      "kb_files_modified": [".hody/knowledge/decisions.md", ".hody/knowledge/api-contracts.md"]
+      "kb_files_modified": [".coregy/knowledge/decisions.md", ".coregy/knowledge/api-contracts.md"]
     },
     {
       "agent": "backend",
