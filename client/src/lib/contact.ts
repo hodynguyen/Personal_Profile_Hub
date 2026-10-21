@@ -1,7 +1,7 @@
 // Single source for contact details shown across the site
 
 export const EMAIL = "hodynguyen.forwork@gmail.com";
-export const PHONE_DISPLAY = "0968 320 336";
+export const PHONE_DISPLAY = "+84 968 320 336";
 export const PHONE_TEL = "+84968320336";
 export const LINKEDIN_URL = "https://linkedin.com/in/hodynguyen";
 export const GITHUB_URL = "https://github.com/hodynguyen";
