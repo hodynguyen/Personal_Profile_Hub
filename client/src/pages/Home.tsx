@@ -133,7 +133,7 @@ export default function Home() {
                     { value: "Top", unit: "contributor", label: "on both core services of a multi-tenant SaaS" },
                     { value: "5+", unit: "developers", label: "led as founder of Coregy" },
                     { value: "~1,370", unit: "", label: "installs across 2 Atlassian Marketplace apps" },
-                    { value: "50+", unit: "installs", label: "of Hody Workflow, my Claude Code plugin" },
+                    { value: "50+", unit: "installs", label: "of Coregy Workflow, my Claude Code plugin" },
                   ].map((stat, i) => (
                     <motion.div
                       key={stat.label}

@@ -187,13 +187,13 @@ export const projectsSeed: NewProject[] = [
     isFeatured: true,
   },
   {
-    title: "Hody Workflow",
+    title: "Coregy Workflow",
     description:
       "A Claude Code plugin that takes a feature through design, build, verify and ship: 9 role-based agents, 15 slash commands, resumable workflow state, and a pre-commit secret scanner. ~11k lines with 841 unit tests, used across 13 repositories.",
     role: "Author",
     techStack: ["Python", "SQLite", "YAML", "Markdown", "Claude Code Plugin API"],
     period: "2026 - Present",
-    link: "https://github.com/hodynguyen/Claude_Workflow",
+    link: "https://github.com/hodynguyen/coregy-workflow",
     category: "AI Tooling",
     isFeatured: true,
   },
