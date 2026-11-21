@@ -57,7 +57,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-24 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden">
       {/* Background blobs */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
@@ -70,7 +70,7 @@ export function ContactSection() {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-12">
             {paths.map((path, i) => (
               <motion.div
                 key={path.title}
@@ -78,7 +78,7 @@ export function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex flex-col bg-card border border-border/50 rounded-2xl p-8 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all"
+                className="flex flex-col bg-card border border-border/50 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all"
               >
                 <div className="bg-primary/10 p-3 rounded-lg text-primary w-fit mb-5">
                   <path.icon className="w-6 h-6" />

@@ -208,7 +208,7 @@ export default function AuthPage() {
             <Code2 className="w-6 h-6" />
           </div>
           <span className="text-2xl font-bold font-display tracking-tight">
-            Dev<span className="text-primary">Hody</span>
+            Hody<span className="text-primary">.</span>
           </span>
         </div>
 

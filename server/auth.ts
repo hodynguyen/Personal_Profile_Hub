@@ -168,9 +168,10 @@ export function setupAuth(app: Express) {
   });
 
   // Session route
+  // Anonymous visitors get 200 + null (not 401) so every page view doesn't log a console error
   app.get(api.auth.session.path, (req, res) => {
     if (!req.isAuthenticated() || !req.user) {
-      return res.status(401).json({ message: "Not authenticated" });
+      return res.json(null);
     }
     return res.json({
       id: req.user.id,

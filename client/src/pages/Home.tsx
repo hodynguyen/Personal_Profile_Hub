@@ -14,16 +14,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Home() {
   const { data, isLoading, error } = usePortfolio();
 
-  if (error) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-background">
-        <div className="text-center space-y-4">
-          <h2 className="text-2xl font-bold text-destructive">Failed to load portfolio</h2>
-          <p className="text-muted-foreground">Please try again later.</p>
-        </div>
-      </div>
-    );
-  }
+  // Static sections still render if the API is down; data sections show a notice
+  const loadError = error ? (
+    <p className="mt-12 text-center text-muted-foreground">
+      Couldn't load this section right now. Please refresh in a moment.
+    </p>
+  ) : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -110,17 +106,17 @@ export default function Home() {
       </section>
 
       {/* === ABOUT SECTION === */}
-      <section id="about" className="py-24 bg-secondary/20">
+      <section id="about" className="py-20 md:py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="order-last lg:order-first"
+              className="order-last lg:order-first lg:sticky lg:top-28"
             >
-              <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-10 shadow-xl">
+              <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl">
                 <div className="text-xs font-semibold tracking-wider text-primary uppercase mb-8">
                   By the numbers
                 </div>
@@ -180,7 +176,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 gap-6">
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {[
                   { icon: Server, label: "Distributed Systems" },
                   { icon: LayoutDashboard, label: "Product & Builder UIs" },
@@ -206,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* === SKILLS SECTION === */}
-      <section id="skills" className="py-24">
+      <section id="skills" className="py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Technical Arsenal" 
@@ -214,12 +210,12 @@ export default function Home() {
             centered
           />
 
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {loadError ?? (isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
               {[1, 2, 3].map(i => <Skeleton key={i} className="h-64 rounded-2xl" />)}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
               {data?.skills.map((skillGroup, index) => (
                 <motion.div
                   key={skillGroup.id}
@@ -245,12 +241,12 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          )}
+          ))}
         </div>
       </section>
 
       {/* === EXPERIENCE SECTION === */}
-      <section id="experience" className="py-24 bg-secondary/20">
+      <section id="experience" className="py-20 md:py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Work History" 
@@ -258,45 +254,43 @@ export default function Home() {
             centered
           />
 
-          <div className="max-w-4xl mx-auto mt-16 relative">
-            {/* Vertical Line for timeline (Desktop) */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border/60 -translate-x-1/2"></div>
-            
-            <div className="space-y-12 md:space-y-16 relative">
-              {isLoading ? (
-                <div className="space-y-8">
-                  <Skeleton className="h-40 w-full rounded-2xl" />
-                  <Skeleton className="h-40 w-full rounded-2xl" />
-                </div>
-              ) : (
-                data?.experiences.map((exp, index) => (
-                  <ExperienceItem key={exp.id} experience={exp} index={index} />
-                ))
-              )}
-            </div>
+          <div className="max-w-4xl mx-auto mt-12 md:mt-16">
+            {loadError ?? (isLoading ? (
+              <div className="space-y-8">
+                <Skeleton className="h-64 w-full rounded-2xl" />
+                <Skeleton className="h-64 w-full rounded-2xl" />
+              </div>
+            ) : (
+              <ol className="space-y-10 md:space-y-12">
+                {data?.experiences.map((exp, index, all) => (
+                  <ExperienceItem key={exp.id} experience={exp} index={index} isLast={index === all.length - 1} />
+                ))}
+              </ol>
+            ))}
           </div>
         </div>
       </section>
 
       {/* === PROJECTS SECTION === */}
-      <section id="projects" className="py-24">
+      <section id="projects" className="py-20 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Featured Projects" 
             subtitle="A selection of my recent work."
+            centered
           />
 
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {loadError ?? (isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
               {[1, 2, 3].map(i => <Skeleton key={i} className="h-96 rounded-2xl" />)}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
               {data?.projects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>
-          )}
+          ))}
         </div>
       </section>
 

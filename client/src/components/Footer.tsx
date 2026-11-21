@@ -5,10 +5,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted/30 border-t border-border mt-20">
+    <footer className="bg-muted/30 border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="col-span-1 sm:col-span-2 md:col-span-2">
             <h3 className="text-xl font-bold font-display mb-4">Hody</h3>
             <p className="text-muted-foreground max-w-sm mb-6">
               Nguyen Thanh Dat — Senior Software Engineer building distributed systems, workflow automation platforms and the product UIs on top of them.

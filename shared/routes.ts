@@ -79,8 +79,7 @@ export const api = {
       method: 'GET' as const,
       path: '/api/auth/session' as const,
       responses: {
-        200: userResponseSchema,
-        401: errorSchemas.validation,
+        200: userResponseSchema.nullable(),
       },
     },
   },

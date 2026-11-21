@@ -117,6 +117,8 @@ export function Navigation() {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
