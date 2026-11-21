@@ -7,8 +7,8 @@ export function Footer() {
   return (
     <footer className="bg-muted/30 border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          <div className="col-span-1 sm:col-span-2 md:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_auto_auto] gap-8 lg:gap-x-16">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <h3 className="text-xl font-bold font-display mb-4">Hody</h3>
             <p className="text-muted-foreground max-w-sm mb-6">
               Nguyen Thanh Dat — Senior Software Engineer building distributed systems, workflow automation platforms and the product UIs on top of them.
@@ -48,15 +48,15 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="w-4 h-4" />
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <a href={`mailto:${EMAIL}`} className="min-w-0 [overflow-wrap:anywhere]">{EMAIL}</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <a href={`tel:${PHONE_TEL}`} className="whitespace-nowrap">{PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4 flex-shrink-0" />
                 <span>{LOCATION}</span>
               </li>
             </ul>
