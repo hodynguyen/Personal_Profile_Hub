@@ -22,7 +22,7 @@ const paths = [
     title: "Recruiters & hiring managers",
     body: "Open to Senior Software Engineer roles — full-stack, backend or platform — in product teams working globally — remote, or on-site / hybrid in Hanoi or Ho Chi Minh City.",
     points: [
-      "4 years shipping production systems, currently Senior SWE at Surbana Jurong",
+      "4 years shipping production systems, currently Senior SWE at SJ Group",
       "Go, Node.js/TypeScript, React/Angular, PostgreSQL, Kafka, AWS",
       "Daily working English with teams in Singapore and the US",
     ],

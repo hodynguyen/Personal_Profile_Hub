@@ -63,7 +63,7 @@ export default function Home() {
               
               <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm md:text-base text-muted-foreground mb-10">
                 {[
-                  { icon: Briefcase, text: "Senior SWE @ Surbana Jurong" },
+                  { icon: Briefcase, text: "Senior SWE @ SJ Group" },
                   { icon: MapPin, text: LOCATION },
                   { icon: Globe, text: "Remote · Hanoi · Ho Chi Minh City" },
                   { icon: Languages, text: "English · Vietnamese" },
@@ -129,7 +129,7 @@ export default function Home() {
                     { value: "4", unit: "years", label: "shipping production software" },
                     { value: "5", unit: "companies", label: "from outsourcing startup to multinational group" },
                     { value: "10+", unit: "projects", label: "delivered as a key member" },
-                    { value: "3", unit: "countries", label: "teams worked with: Vietnam, Singapore, US" },
+                    { value: "5", unit: "countries", label: "teams worked with: Vietnam, Singapore, US, Spain, Philippines" },
                     { value: "Top", unit: "contributor", label: "on both core services of a multi-tenant SaaS" },
                     { value: "5+", unit: "developers", label: "led as founder of Coregy" },
                     { value: "~1,370", unit: "", label: "installs across 2 Atlassian Marketplace apps" },
@@ -170,7 +170,7 @@ export default function Home() {
                   I'm <strong className="text-foreground">Nguyen Thanh Dat (Hody)</strong>, a full-stack engineer in Vietnam. I build Go and Node.js/TypeScript services with event-driven architecture and third-party integration over REST, gRPC and webhooks, and React, Next.js and Angular on the front — admin dashboards, builder UIs and high-volume data tables.
                 </p>
                 <p>
-                  Today I'm a Senior Software Engineer at <strong className="text-foreground">Surbana Jurong Group</strong>, where I built a workflow automation engine together with its drag-and-drop builder UI. Before that: <strong className="text-foreground">Ricksoft</strong>, <strong className="text-foreground">EMDDI</strong>, <strong className="text-foreground">BSS Group</strong>, and running my own outsourcing team at <strong className="text-foreground">Coregy</strong>. I've led small teams and owned code review and mentoring for junior engineers.
+                  Today I'm a Senior Software Engineer at <strong className="text-foreground">SJ Group</strong>, building a workflow automation platform end to end — the Go execution engine, NestJS microservices and the Angular drag-and-drop builder. Before that: <strong className="text-foreground">Ricksoft</strong>, <strong className="text-foreground">EMDDI</strong>, <strong className="text-foreground">BSS Group</strong>, and running my own outsourcing team at <strong className="text-foreground">Coregy</strong>. I've led small teams and owned code review and mentoring for junior engineers.
                 </p>
                 <p className="flex items-start gap-3">
                   <GraduationCap className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
